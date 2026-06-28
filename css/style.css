@@ -163,7 +163,7 @@ button { cursor: pointer; }
   align-items: center;
   background:
     linear-gradient(90deg, rgba(30,30,30,.76), rgba(30,30,30,.31)),
-    url('../assets/images/378000408_716338820507729_6027282222151264830_n.png') center/cover fixed;
+  url('https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1920&q=80') center/cover fixed;
   color: var(--cream);
   overflow: hidden;
 }
