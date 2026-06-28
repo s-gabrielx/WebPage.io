@@ -161,9 +161,9 @@ button { cursor: pointer; }
   min-height: 100svh;
   display: flex;
   align-items: center;
-  background:
+ background:
     linear-gradient(90deg, rgba(30,30,30,.76), rgba(30,30,30,.31)),
-    url('../images/logo.png') center/cover fixed;
+    url('../images/logo.png') center/cover no-repeat;
   color: var(--cream);
   overflow: hidden;
 }
