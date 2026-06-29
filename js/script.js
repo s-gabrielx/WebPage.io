@@ -159,8 +159,11 @@ function totals() {
     const product = products.find(item => item.id === entry.id);
     return sum + (product ? product.price * entry.qty : 0);
   }, 0);
-  const delivery = subtotal > 0 ? (subtotal > 100000 ? 0 : 2500) : 0;
-  return { subtotal, delivery, total: subtotal + delivery };
+  const discount = subtotal >= 5000 ? subtotal * 0.05 : 0;
+  const afterDiscount = subtotal - discount;
+  const shipping = subtotal > 0 ? afterDiscount * 0.10 : 0;
+  const total = afterDiscount + shipping;
+  return { subtotal, discount, shipping, total };
 }
 
 function renderCart() {
@@ -187,9 +190,13 @@ function renderCart() {
   }).join("") : `<p>Your cart is waiting for its first beautiful piece.</p>`;
 
   const summary = totals();
+  const discountRow = summary.discount > 0
+    ? `<div class="summary-row discount"><span>5% Discount Applied 🎉</span><strong>- ${formatPrice(summary.discount)}</strong></div>`
+    : `<div class="summary-row hint"><span>Spend ₱5,000+ to get 5% off</span><strong></strong></div>`;
   const summaryHtml = `
-    <div class="summary-row"><span>Subtotal</span><strong>${formatPrice(summary.subtotal)}</strong></div>
-    <div class="summary-row"><span>Delivery Fee</span><strong>${formatPrice(summary.delivery)}</strong></div>
+    <div class="summary-row"><span>Subtotal (${cart.reduce((s,e)=>s+e.qty,0)} item/s)</span><strong>${formatPrice(summary.subtotal)}</strong></div>
+    ${discountRow}
+    <div class="summary-row"><span>Shipping Fee (10%)</span><strong>${formatPrice(summary.shipping)}</strong></div>
     <div class="summary-row total"><span>Grand Total</span><strong>${formatPrice(summary.total)}</strong></div>
   `;
   $("#cartTotals").innerHTML = summaryHtml;
