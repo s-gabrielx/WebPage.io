@@ -1,6 +1,6 @@
 # Susie's Furniture
 
-Premium Filipino luxury furniture website — a fully static site ready for GitHub Pages.
+Premium Filipino luxury furniture website
 
 ## Folder Structure
 
