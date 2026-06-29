@@ -161,9 +161,9 @@ button { cursor: pointer; }
   min-height: 100svh;
   display: flex;
   align-items: center;
- background:
+  background:
     linear-gradient(90deg, rgba(30,30,30,.76), rgba(30,30,30,.31)),
-    url('../images/logo.png') center/cover no-repeat;
+    url('https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1920&q=80') center/cover fixed;
   color: var(--cream);
   overflow: hidden;
 }
@@ -926,4 +926,22 @@ input:focus, select:focus, textarea:focus {
   .modal-product { grid-template-columns: 1fr; }
   .modal-product img { min-height: 300px; }
   .footer .copyright { grid-column: auto; }
+}
+
+/* Discount & shipping rows */
+.summary-row.discount {
+  color: #2a9d5c;
+  font-weight: 700;
+  background: rgba(42,157,92,.08);
+  padding: 10px 8px;
+  border-radius: 6px;
+  border-bottom: none;
+}
+.summary-row.discount strong {
+  color: #2a9d5c;
+}
+.summary-row.hint span {
+  color: #b08c3a;
+  font-size: 12px;
+  font-style: italic;
 }
